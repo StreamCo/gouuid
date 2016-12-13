@@ -101,8 +101,8 @@ func TestNewV5(t *testing.T) {
 	if u.Version() != 5 {
 		t.Errorf("Expected to generate UUIDv5, given %d", u.Version())
 	}
-	if u.Variant() != ReservedRFC4122 {
-		t.Errorf("Expected to generate UUIDv5 RFC4122 variant, given %x", u.Variant())
+	if u.Variant() != ReservedNCS {
+		t.Errorf("Expected to generate UUIDv5 NCS variant, given %x", u.Variant())
 	}
 	re := regexp.MustCompile(format)
 	if !re.MatchString(u.String()) {

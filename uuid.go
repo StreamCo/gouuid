@@ -115,7 +115,7 @@ func NewV5(ns *UUID, name []byte) (u *UUID, err error) {
 	// Set all bits to truncated SHA1 hash generated from namespace
 	// and name.
 	u.setBytesFromHash(sha1.New(), ns[:], name)
-	u.setVariant(ReservedRFC4122)
+	u.setVariant(ReservedNCS)
 	u.setVersion(5)
 	return
 }
