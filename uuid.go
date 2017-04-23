@@ -171,3 +171,7 @@ func (u *UUID) Version() uint {
 func (u *UUID) String() string {
 	return fmt.Sprintf("%x-%x-%x-%x-%x", u[0:4], u[4:6], u[6:8], u[8:10], u[10:])
 }
+
+func (u* UUID) Bytes() []byte {
+	return u.Bytes()
+}
