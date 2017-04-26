@@ -173,5 +173,5 @@ func (u *UUID) String() string {
 }
 
 func (u* UUID) Bytes() []byte {
-	return u.Bytes()
+	return (*u)[:]
 }

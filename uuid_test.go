@@ -6,6 +6,7 @@
 package uuid
 
 import (
+	"fmt"
 	"regexp"
 	"testing"
 )
@@ -41,6 +42,18 @@ func TestParseString(t *testing.T) {
 	}
 	if u.String() != base.String() {
 		t.Errorf("Expected parsed UUID to be the same as base, %s != %s", u.String(), base.String())
+	}
+}
+
+func TestUUID_Bytes(t *testing.T) {
+	u, err := NewV4()
+	if err != nil {
+		t.Errorf("Expected to generate UUID without problems, error thrown: %s", err.Error())
+		return
+	}
+	b := u.Bytes()
+	if u.String() != fmt.Sprintf("%x-%x-%x-%x-%x", b[0:4], b[4:6], b[6:8], b[8:10], b[10:])	{
+		t.Errorf("Expected UUIDs strings and bytes to be the same")
 	}
 }
 
